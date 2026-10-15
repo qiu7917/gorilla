@@ -36,11 +36,10 @@ li {
   max-width: 550px;
   width: 100%;
   margin: 0 auto;
-  background-color: #ffffff;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 850px) {
   .container {
-    max-width: 768px;
+    max-width: 850px;
   }
 }
 
@@ -58,9 +57,21 @@ li {
   width: 100%;
   min-height: 100vh;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 850px) {
   .wrapper {
     display: block;
+  }
+}
+
+.main-content {
+  max-width: 550px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+@media screen and (max-width: 850px) {
+  .main-content {
+    max-width: 850px;
   }
 }
 
@@ -127,7 +138,7 @@ li {
 .right-panel .pc_nav .right-panel_cta {
   max-width: 415px;
   margin-top: 32px;
-  margin-inline: 0 16px;
+  margin-inline: 16px;
 }
 .right-panel .pc_nav .right-panel_cta.cta-btn {
   overflow: hidden;
@@ -196,7 +207,7 @@ li {
   background: #000000;
   padding: 4px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 850px) {
   .sec04 .sec04-wrapper {
     border-radius: 33px;
   }
@@ -360,7 +371,7 @@ li {
   height: auto;
   border: none;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 850px) {
   .sec10 .sec10-clinic .sec10-item iframe {
     max-width: 658px;
     max-height: 353px;
@@ -390,9 +401,9 @@ footer .container .fixedbtn {
     transform: translateX(0);
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 850px) {
   footer .container .fixedbtn {
-    max-width: 768px;
+    max-width: 850px;
   }
 }
 footer .container .fixedbtn a {
