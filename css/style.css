@@ -244,8 +244,11 @@ li {
   bottom: 0;
   left: 50%;
   width: 100%;
-  width: calc(100% - 10px);
   transform: translateX(-50%);
+}
+.sec04 .sec04-wrapper .sec04-upper .sec04-case .sec04-slick .slider {
+  width: calc(100% - 10px);
+  margin: 0 auto;
 }
 .sec04 .sec04-wrapper .sec04-upper .sec04-case .sec04-slick .slider .prev-arrow,
 .sec04 .sec04-wrapper .sec04-upper .sec04-case .sec04-slick .slider .next-arrow {
