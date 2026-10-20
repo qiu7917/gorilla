@@ -361,7 +361,7 @@ li {
                     transform: translateX(-50%);
 
                     .slider {
-                    width: calc(100% - 1.5%);
+                    width: calc(100% - 2%);
                     margin: 0 auto;
 
                         .slide {}
@@ -544,12 +544,18 @@ li {
 
 .sec11 {
     .cta {
-        bottom: 47.5%;
+        bottom: 45%;
     }
 }
 
 footer {
     padding-bottom: 100px;
+    display: none;
+
+    @include m.tab {
+        display: block;
+    }
+    
 
     .container {
         .fixedbtn {
