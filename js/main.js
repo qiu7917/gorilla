@@ -89,25 +89,45 @@ $(function () {
 
 
 /*=================================================
-    nav activeカラー
+    footer高さ
 ===================================================*/
 
+// $(window).on("scroll resize", function () {
+//     if (window.innerWidth <= 768) {
+//         let ctaHeight = $(".fixedbtn").outerHeight();
+//         ($(".fixedbtn").is(":visible"))
+//         $("footer").css("padding-bottom", ctaHeight + "px");
+
+//     } else {
+//         $("footer").css("padding-bottom", "84px");
+//     }
+// });
+
+
+
 $(window).on("scroll resize", function () {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 850) {
         let ctaHeight = $(".fixedbtn").outerHeight();
-        ($(".fixedbtn").is(":visible"))
-        $("footer").css("padding-bottom", ctaHeight + "px");
+        if ($(".fixedbtn").is(":visible")) {
+            $("footer").css("padding-bottom", ctaHeight + "px");
+        } else {
+            $("footer").css("padding-bottom", "20px");
+        }
 
     } else {
-        $("footer").css("padding-bottom", "84px");
+        $("footer").css("padding-bottom", ""); 
     }
 });
+
+/*=================================================
+    nav activeカラー
+===================================================*/
 
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.pc_nav ul li a[href^="#"]');
 
     const observerOptions = {
-        root: null, 
+        root: null,
         rootMargin: '-30% 0px -70% 0px',
         threshold: 0
     };
