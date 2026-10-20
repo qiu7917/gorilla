@@ -361,8 +361,8 @@ li {
                     transform: translateX(-50%);
 
                     .slider {
-                    width: calc(100% - 2%);
-                    margin: 0 auto;
+                        width: calc(100% - 2%);
+                        margin: 0 auto;
 
                         .slide {}
 
@@ -556,7 +556,7 @@ footer {
     @include m.tab {
         display: block;
     }
-    
+
 
     .container {
         .fixedbtn {

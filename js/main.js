@@ -92,19 +92,6 @@ $(function () {
     footer高さ
 ===================================================*/
 
-// $(window).on("scroll resize", function () {
-//     if (window.innerWidth <= 768) {
-//         let ctaHeight = $(".fixedbtn").outerHeight();
-//         ($(".fixedbtn").is(":visible"))
-//         $("footer").css("padding-bottom", ctaHeight + "px");
-
-//     } else {
-//         $("footer").css("padding-bottom", "84px");
-//     }
-// });
-
-
-
 $(window).on("scroll resize", function () {
     if (window.innerWidth <= 850) {
         let ctaHeight = $(".fixedbtn").outerHeight();
@@ -115,46 +102,54 @@ $(window).on("scroll resize", function () {
         }
 
     } else {
-        $("footer").css("padding-bottom", ""); 
+        $("footer").css("padding-bottom", "");
     }
 });
+
 
 /*=================================================
     nav activeカラー
 ===================================================*/
 
 document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelectorAll('.pc_nav ul li a[href^="#"]');
+    const navLinks = document.querySelectorAll(
+        '.pc_nav ul li a[href^="#"]'
+    );
 
-    const observerOptions = {
-        root: null,
-        rootMargin: '-30% 0px -70% 0px',
-        threshold: 0
-    };
+    const sections = Array.from(navLinks)
+        .map(link => {
+            const target = document.querySelector(
+                link.getAttribute('href')
+            );
+            return target ? { link, target } : null;
+        })
+        .filter(Boolean);
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const targetId = entry.target.getAttribute('id');
-
-                navLinks.forEach(link => {
-                    const href = link.getAttribute('href');
-                    if (href === `#${targetId}`) {
-                        link.classList.add('is-active');
-                    } else {
-                        link.classList.remove('is-active');
-                    }
-                });
-            }
+    function updateActiveNav() {
+        const activationLine = window.innerHeight * 0.1;
+        const activeSections = sections.filter(({ target }) => {
+            const rect = target.getBoundingClientRect();
+            return rect.top <= activationLine &&
+                rect.bottom > activationLine;
         });
-    }, observerOptions);
 
-    navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        const targetSection = document.querySelector(href);
-        if (targetSection) {
-            observer.observe(targetSection);
+        activeSections.sort((a, b) => {
+            return b.target.getBoundingClientRect().top -
+                a.target.getBoundingClientRect().top;
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('is-active');
+        });
+
+        if (activeSections.length > 0) {
+            activeSections[0].link.classList.add('is-active');
         }
-    });
+    }
+
+    window.addEventListener('scroll', updateActiveNav);
+    window.addEventListener('resize', updateActiveNav);
+    updateActiveNav();
 });
+
 
